@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Rafael Beffart Paludo</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <script id="script" type="text/javascript" src="CalculaIMC.js"></script>
+
+    <!-- Estilo (CSS) -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <main>
+
+        <div class="row">
+            <div class="col-3">
+                <img src="training-828744_960_720.jpg">
+            </div>
+            <div class="col-6">
+                <h1 id="appTitle" class="title1">IMC</h1>
+
+                <form id="form">
+                    <div class="form-group">
+                        <label for="inputAge">Idade</label>
+                        <input type="number" class="form-control" id="inputAge" aria-describedby="ageHelp" placeholder="Insira a sua idade">
+                        <small id="ageHelp" class="form-text text-muted">As tabelas de IMC são diferentes para certos intervalos de idade</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputHeight">Altura</label>
+                        <input type="number" class="form-control" id="inputHeight" placeholder="Insira a sua altura (em centímetros)">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputWeight">Peso</label>
+                        <input type="number" class="form-control" id="inputWeight" placeholder="Insira o seu peso (em quilos)">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="inputAtFisica">Atividade Física</label>
+                        </div>
+                        <div id="inputAtFisica" class="btn-group" role="group" aria-label="atividadeFisica">
+                            <button type="button" class="btn btn-secondary">Sedentária</button>
+                            <button type="button" class="btn btn-secondary">Moderada</button>
+                            <button type="button" class="btn btn-secondary">Intensa</button>
+                        </div>
+                        <small id="atFisicaHelp" class="form-text text-muted">Dependendo da intensidade de atividade física o
+                            peso pode ser influenciado pelos resultados da atividade (músculos, principalmente)</small>
+                    </div>
+                    <button id="imcCalculusBtn" type="button" class="btn btn-primary" onclick="calculaIMC()">Calcular</button>
+                </form>
+            </div>
+            <div class="col-3">
+                <img src="140104-F-HE878-045.JPG">
+            </div>
+        </div>
+
+        <div class="row">
+            <p id="result"></p>
+        </div>
+    </main>
+</div>
+<script>
+
+    var ele = document.querySelectorAll(".btn-group > button.btn");
+    for(var i=0; i<ele.length; i++){
+        ele[i].addEventListener("click", function(){
+            document.getElementById("result").style.visibility = "hidden";
+            document.getElementById("result").innerHTML = this.innerHTML;
+        });
+    }
+</script>
+</body>
+</html>
